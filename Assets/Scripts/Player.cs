@@ -5,9 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
+    public float speed;
     private BoxCollider2D boxCollider;
-
     private Vector3 moveDelta;
+    private RaycastHit2D hit;
+
 
     void Start()
     {
@@ -30,8 +32,20 @@ public class Player : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        //Moving
-        transform.Translate(moveDelta * Time.deltaTime);
+        hit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, new Vector2(0, moveDelta.y), Mathf.Abs(speed * moveDelta.y * Time.deltaTime), LayerMask.GetMask("Actor", "Blocking"));
+        if(hit.collider == null)
+        {
+            //Moving
+            transform.Translate(0, speed * moveDelta.y * Time.deltaTime, 0);
+        }
+
+        hit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, new Vector2(moveDelta.x, 0), Mathf.Abs(speed * moveDelta.x * Time.deltaTime), LayerMask.GetMask("Actor", "Blocking"));
+        if (hit.collider == null)
+        {
+            //Moving
+            transform.Translate(speed * moveDelta.x * Time.deltaTime, 0, 0);
+        }
+
 
     }
 

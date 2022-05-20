@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{0A736120-DB47-C851-BAD2-E259901F516E}</ProjectGuid>
+    <ProjectGuid>{42844BFB-7761-9EDC-FD4C-4B30ADF890DA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.2D.Tilemap.Extras.Placeholder.EditorTests</AssemblyName>
